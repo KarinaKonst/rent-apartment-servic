@@ -1,0 +1,2 @@
+DROP SEQUENCE address_apartment_sequence;
+DROP TABLE address_apartment;
