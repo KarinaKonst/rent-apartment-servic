@@ -3,8 +3,7 @@ package com.example.rentproduct.entity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Getter

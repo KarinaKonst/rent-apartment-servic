@@ -10,7 +10,7 @@ public class AddressDto {
     private String street;
     private String numberHouse;
     private String numberApartment;
-    private ApartmentDto apartmentDto;
+
 
 
 

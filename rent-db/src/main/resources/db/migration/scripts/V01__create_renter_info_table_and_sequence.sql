@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS renter_info(
     last_name varchar(100),
     number_passport varchar(100),
     number_phone varchar(100),
+    email_address varchar(100),
+    password varchar(50),
     renter_rating varchar(5)
 
     );
