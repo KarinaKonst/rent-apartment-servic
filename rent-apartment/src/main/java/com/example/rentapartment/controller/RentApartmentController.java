@@ -71,6 +71,7 @@ public class RentApartmentController {
         if (start == null && end == null) {
             AddressDto addressDto = rentApartmentService.getApartmentById(id);
 
+
             return addressDto;
         }
         return rentApartmentService.getApartmentByIdAndTotalAmount(id, start, end);
@@ -106,14 +107,7 @@ public class RentApartmentController {
 
     }
 
-    @PostMapping("/conclusion-of-transaction")
-    public String conclusionOfTransaction(@RequestParam int days, @RequestParam Long id) {
-        valideUserSession.checkValideSession();
-        AddressDto apartmentById = rentApartmentService.getApartmentById(id);
-        rentApartmentService.getTotalAmount(apartmentById, days);
 
-        return "Успешно!";
-    }
 
 
 }

@@ -78,9 +78,26 @@ public class RentApartmentServiceImpl implements RentApartmentService {
     public ResponseObjectList getFullInformationByStreet(String street) {
         List<AddressEntity> entityList = addressRepository.getAddressEntitiesListOnTheStreet(street);
         if(!entityList.isEmpty()){
-            List<AddressDto> collect = entityList.stream()
-                    .map(o -> fullMapper.getFullFieldsAddressToDto(o))
-                    .collect(Collectors.toList());
+            List<AddressDto> collect=new ArrayList<>();
+            for (AddressEntity a : entityList) {
+
+                ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(a.getApartmentEntity());
+                AddressDto addressDto = fullMapper.addressEntityToAddressDto(a);
+
+                List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(a.getApartmentEntity().getId());
+
+                if (!raitingEntitiesByApartmentId.isEmpty()) {
+                    Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+                    apartmentDto.setRating(averageRaiting);
+
+                }
+                else{
+                    apartmentDto.setRating(0);
+                }
+                addressDto.setApartmentDto(apartmentDto);
+
+                collect.add(addressDto);
+            }
 
             return new ResponseObjectList("Результат поиска", collect);
         }
@@ -93,14 +110,34 @@ public class RentApartmentServiceImpl implements RentApartmentService {
      * где city-название города
      * return-список доступных адресов по названию города
      */
-    @Override
-    public List<AddressDto> getFullInformationByCity(String city) {
-        List<AddressEntity> entityList = addressRepository.getAddressEntitiesListOnTheCity(city);
-        List<AddressDto> collect = entityList.stream()
-                .map(o -> fullMapper.getFullFieldsAddressToDto(o))
-                .collect(Collectors.toList());
-        return collect;
-    }
+//    @Override
+//    public List<AddressDto> getFullInformationByCity(String city) {
+//        List<AddressEntity> entityList = addressRepository.getAddressEntitiesListOnTheCity(city);
+//        List<AddressDto> collect = entityList.stream()
+//                .map(o -> fullMapper.getFullFieldsAddressToDto(o))
+//                .collect(Collectors.toList());
+//        List<AddressDto> collect=new ArrayList<>();
+//        for (AddressEntity a : entityList) {
+//
+//            ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(a.getApartmentEntity());
+//            AddressDto addressDto = fullMapper.addressEntityToAddressDto(a);
+//
+//            List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(a.getApartmentEntity().getId());
+//
+//            if (!raitingEntitiesByApartmentId.isEmpty()) {
+//                Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+//                apartmentDto.setRating(averageRaiting);
+//
+//            }
+//            else{
+//                apartmentDto.setRating(0);
+//            }
+//            addressDto.setApartmentDto(apartmentDto);
+//
+//            collect.add(addressDto);
+//        }
+//        return collect;
+//    }
 
     /**
      * Метод считает средний рейтинг по квартире во время запроса по локации
@@ -187,13 +224,28 @@ public class RentApartmentServiceImpl implements RentApartmentService {
         List<ApartmentEntity> apartmentEntityList = apartmentRepository.getApartmentEntitiesByPriceAndNumberOfRooms(price,
                 numberOfRooms);
         if (!apartmentEntityList.isEmpty()){
-            List<AddressDto> resultList = new ArrayList<>();
-            for (ApartmentEntity apartmentEntity : apartmentEntityList) {
-                AddressDto fullFieldsAddressToDto = fullMapper.getFullFieldsAddressToDto(apartmentEntity.getAddressEntity());
-                resultList.add(fullFieldsAddressToDto);
+            List<AddressDto> collect=new ArrayList<>();
+            for (ApartmentEntity a : apartmentEntityList) {
+
+                ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(a.getAddressEntity().getApartmentEntity());
+                AddressDto addressDto = fullMapper.addressEntityToAddressDto(a.getAddressEntity());
+
+                List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(a.getAddressEntity().getApartmentEntity().getId());
+
+                if (!raitingEntitiesByApartmentId.isEmpty()) {
+                    Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+                    apartmentDto.setRating(averageRaiting);
+
+                }
+                else{
+                    apartmentDto.setRating(0);
+                }
+                addressDto.setApartmentDto(apartmentDto);
+
+                collect.add(addressDto);
             }
 
-            return new ResponseObjectList("Результат поиска",resultList);
+            return new ResponseObjectList("Результат поиска",collect);
         }
    throw new NotFoundInformation();
 
@@ -208,7 +260,22 @@ public class RentApartmentServiceImpl implements RentApartmentService {
         clientRepository.getClientEntityByEmail(base64Manager
                 .encode(valideUserSession.getEmail()));
            AddressEntity addressEntity = addressRepository.findById(id).get();
-           return fullMapper.addressEntityToAddressDto(addressEntity);
+        List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(addressEntity.getApartmentEntity().getId());
+        AddressDto addressDto = fullMapper.addressEntityToAddressDto(addressEntity);
+        ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(addressEntity.getApartmentEntity());
+        if (!raitingEntitiesByApartmentId.isEmpty()) {
+            Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+            apartmentDto.setRating(averageRaiting);
+
+        }
+        else{
+            apartmentDto.setRating(0);
+        }
+
+
+        addressDto.setApartmentDto(apartmentDto);
+        return  addressDto;
+
 
     }
 
@@ -254,7 +321,20 @@ public class RentApartmentServiceImpl implements RentApartmentService {
 
         clientRepository.save(clientEntity);
         addressRepository.save(addressEntity);
+        List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(addressEntity.getApartmentEntity().getId());
         AddressDto addressDto = fullMapper.addressEntityToAddressDto(addressEntity);
+        ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(addressEntity.getApartmentEntity());
+        if (!raitingEntitiesByApartmentId.isEmpty()) {
+            Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+            apartmentDto.setRating(averageRaiting);
+
+        }
+        else{
+            apartmentDto.setRating(0);
+        }
+
+
+        addressDto.setApartmentDto(apartmentDto);
         LocalDate dateBookingRegistration = LocalDate.now();
 
         bookingHistoryRepository.save(prepareBookingEntity(addressEntity.getApartmentEntity(),

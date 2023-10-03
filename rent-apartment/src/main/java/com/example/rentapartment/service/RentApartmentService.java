@@ -13,7 +13,7 @@ public interface RentApartmentService {
 
   ResponseObjectList getFullInformationByStreet(String street);
 
-    List<AddressDto> getFullInformationByCity(String city);
+//    List<AddressDto> getFullInformationByCity(String city);
 
     ResponseObjectList getInfoByCity(String latitude , String  longitude) ;
 
