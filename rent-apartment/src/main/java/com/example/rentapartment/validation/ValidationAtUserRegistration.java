@@ -19,8 +19,8 @@ public class ValidationAtUserRegistration {
     public String checkingForZero(String name, String value) {
         this.value = value;
         this.name = name;
-        if (value == null) {
-            list.add("Поле " + name + " не может быть пустым!");
+        if (value.isEmpty()) {
+            list.add("Поле " + name + " не может быть пустым!" );
         }
         return value;
     }
@@ -30,7 +30,7 @@ public class ValidationAtUserRegistration {
      */
     public void checkNameClient(String name, String value) {
         if (value.matches(".*[^А-Яа-яЁё].*") == true) {
-            list.add("Поле " + name + " содержит недопустимые символы!");
+            list.add("Поле " + name + " содержит недопустимые символы!" );
         }
     }
 
@@ -40,7 +40,7 @@ public class ValidationAtUserRegistration {
     public void checkNumberPhone(String value) {
         if (value.matches("^\\d{10}$") == false) {
             list.add(" Поле numberPhone заполнено некорректно, " +
-                    "в нем должно быть 10 цифр, без 8(+7)");
+                    "в нем должно быть 10 цифр, без 8(+7)" );
         }
 
     }
@@ -51,7 +51,7 @@ public class ValidationAtUserRegistration {
     public void checkNumberPassport(String value) {
         if (value.matches("(\\d{4}\\s\\d{6})") == false) {
             list.add(" Поле numberPassport заполнено некорректно, " +
-                    "в нем должно быть 10 цифр, после 4й цифры -пробел");
+                    "в нем должно быть 10 цифр, после 4й цифры -пробел" );
         }
 
     }
@@ -68,7 +68,7 @@ public class ValidationAtUserRegistration {
      */
     public void checkPassword(String value){
         if(value.matches("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")==false){
-            list.add("Поле password заполнено некорректно, " +"поле должно содержать не менее 8 символов, содержать только латинские буквы, цифры и спецсимволы");
+            list.add("Поле password заполнено некорректно, " +"поле должно содержать не менее 8 символов, содержать только латинские буквы, цифры и спецсимволы" );
         }
     }
 

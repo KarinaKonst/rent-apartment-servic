@@ -19,8 +19,8 @@ public class ValidationAtApartmentRegistration {
     public String checkingForZero(String name, String value) {
         this.value = value;
         this.name = name;
-        if (value == null) {
-            list.add("Поле " + name + " не может быть пустым!");
+        if (value.isEmpty()) {
+            list.add("Поле " + name + " не может быть пустым!" );
         }
         return value;
     }
@@ -35,8 +35,8 @@ public class ValidationAtApartmentRegistration {
     }
 
     public void checkingForIntegers(String name,String value){
-        if(value.matches("#^[0-9]+$#")==true){
-            list.add("Поле " + name + " должно содержать только числа!");
+        if(value.matches(".*\\d.*")==false){
+            list.add("Поле " + name + " должно содержать только числа!" );
 
         }
     }

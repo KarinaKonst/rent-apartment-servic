@@ -47,9 +47,9 @@ public class RentApartmentController {
      * Метод возвращает список адресов квартир по названию улицы
      */
     @GetMapping(GET_INFO_BY_STREET)
-    public List<AddressDto> getInfoByStreet(@PathVariable String street) {
-        List<AddressDto> addressDtoList = rentApartmentService.getFullInformationByStreet(street);
-        return addressDtoList;
+    public ResponseObjectList getInfoByStreet(@PathVariable String street) {
+       return rentApartmentService.getFullInformationByStreet(street);
+
     }
 
     /**
@@ -65,23 +65,22 @@ public class RentApartmentController {
      * Метод возвращает адрес квартиры с возможностью дальнейшего бронирования
      */
     @GetMapping(CHOICE_APARTMENT)
-    public AddressDto choiceApartmentById(@RequestParam Long id, @RequestParam(required = false)LocalDate start,
-                                          @RequestParam (required = false) LocalDate end) {
-
-        if (start == null&& end==null) {
-            valideUserSession.checkValideSession();
+    public AddressDto choiceApartmentById(@RequestParam Long id, @RequestParam(required = false) LocalDate start,
+                                          @RequestParam(required = false) LocalDate end) {
+        valideUserSession.checkValideSession();
+        if (start == null && end == null) {
             AddressDto addressDto = rentApartmentService.getApartmentById(id);
 
             return addressDto;
         }
-        return rentApartmentService.getApartmentByIdAndTotalAmount(id, start,end);
+        return rentApartmentService.getApartmentByIdAndTotalAmount(id, start, end);
     }
 
     /**
      * Метод возвращает адрес квартир по цене и количеству комнат
      */
     @GetMapping(GET_APARTMENT_BY_PRICE_AND_NUMBER_OF_ROOMS)
-    public List<AddressDto> getApartmentEntitiesByPriceAndNumberOfRooms(@RequestParam String price,
+    public ResponseObjectList getApartmentEntitiesByPriceAndNumberOfRooms(@RequestParam String price,
                                                                         @RequestParam String numberOfRooms) {
 
         return rentApartmentService.getApartmentEntitiesByPriceAndNumberOfRooms(price, numberOfRooms);
@@ -111,7 +110,7 @@ public class RentApartmentController {
     public String conclusionOfTransaction(@RequestParam int days, @RequestParam Long id) {
         valideUserSession.checkValideSession();
         AddressDto apartmentById = rentApartmentService.getApartmentById(id);
-        Integer totalAmount = rentApartmentService.getTotalAmount(apartmentById, days);
+        rentApartmentService.getTotalAmount(apartmentById, days);
 
         return "Успешно!";
     }

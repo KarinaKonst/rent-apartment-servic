@@ -11,6 +11,6 @@ public class ApartmentDto {
     private String numberOfRooms;
     private String price;
     private Integer rating;
-    private RenterDto renterDto;
+
 
 }

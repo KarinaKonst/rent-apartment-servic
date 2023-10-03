@@ -17,6 +17,8 @@ public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
     @Query("SELECT a FROM AddressEntity a where a.city=?1")
     List<AddressEntity> getAddressEntitiesListOnTheCity(String city);
 
+    AddressEntity getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(String city,String street,String numberHouse, String numberApartment);
+
 
 
 }
