@@ -9,5 +9,7 @@ public interface ClientRepository extends JpaRepository<ClientEntity,Long> {
 
     ClientEntity getClientEntityByEmailAndPassword(String email,String password);
     ClientEntity getClientEntityByEmail(String email);
+    ClientEntity getClientEntityBySessionToken(String authToken);
+
 
 }

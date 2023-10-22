@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS client_info(
     parent_city varchar(100),
     product_first int8 REFERENCES promotion_product (id),
     product_second int8 REFERENCES promotion_product (id),
-    commerce boolean DEFAULT false
+    commerce boolean DEFAULT false,
+    session_token varchar DEFAULT null
 
 
     );

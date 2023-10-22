@@ -1,9 +1,6 @@
 package com.example.rentapartment.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

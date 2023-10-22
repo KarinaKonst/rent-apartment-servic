@@ -19,7 +19,7 @@ public class ValidationAtApartmentRegistration {
     public String checkingForZero(String name, String value) {
         this.value = value;
         this.name = name;
-        if (value.isEmpty()) {
+        if (value==null) {
             list.add("Поле " + name + " не может быть пустым!" );
         }
         return value;

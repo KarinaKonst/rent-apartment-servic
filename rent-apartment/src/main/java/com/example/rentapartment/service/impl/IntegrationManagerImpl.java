@@ -6,9 +6,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import static com.example.rentapartment.constant.ConstantProject.BASE_URL;
+
 @Service
 public class IntegrationManagerImpl implements IntegrationManager {
-    public static final String BASE_URL = "http://localhost:9098/product-send?id=%s";
+
     RestTemplate restTemplate = new RestTemplate();
 
     @Override

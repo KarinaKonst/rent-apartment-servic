@@ -1,16 +1,20 @@
 package com.example.rentapartment.mapper;
 
 
-import com.example.rentapartment.dto.*;
+import com.example.rentapartment.dto.AddressDto;
+import com.example.rentapartment.dto.ApartmentDto;
+import com.example.rentapartment.dto.ClientDto;
+import com.example.rentapartment.dto.InfoByCityDto;
 import com.example.rentapartment.entity.AddressEntity;
 import com.example.rentapartment.entity.ApartmentEntity;
+import com.example.rentapartment.entity.BookingHistoryEntity;
 import com.example.rentapartment.entity.ClientEntity;
 import com.example.rentapartment.model.ApartmentRegistration;
 import com.example.rentapartment.security_model.UserRegistrationInfo;
-import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+
+import java.time.LocalDate;
 
 @Mapper(componentModel = "spring")
 public interface FullMapper {
@@ -43,12 +47,18 @@ public interface FullMapper {
     public AddressEntity apartmentRegistrationToAddressEntity(ApartmentRegistration apartmentRegistration);
     public ApartmentEntity apartmentRegistrationToApartmentEntity(ApartmentRegistration apartmentRegistration);
 
-//public IntegrationModelToMailSendler prepareIntegrationModelMailSenderFromEntity(AddressEntity addressEntity,
-//                                                                                 ApartmentEntity apartmentEntity,
-//                                                                                 ClientEntity clientEntity);
-//
-//public IntegrationModelToMailSendler prepareIntegrationModelMailSenderFromBookingHistory(Long id);
-
+    public default BookingHistoryEntity prepareBookingEntity(ApartmentEntity apartmentEntity,
+                                                      ClientEntity clientEntity,
+                                                      LocalDate start,
+                                                      LocalDate end, LocalDate dateBookingRegistration) {
+        BookingHistoryEntity bookingHistoryEntity = new BookingHistoryEntity();
+        bookingHistoryEntity.setApartmentId(apartmentEntity);
+        bookingHistoryEntity.setClientId(clientEntity);
+        bookingHistoryEntity.setDateStart(start);
+        bookingHistoryEntity.setDateEnd(end);
+        bookingHistoryEntity.setDateRegistrationBooking(dateBookingRegistration);
+        return bookingHistoryEntity;
+    }
 
 }
 

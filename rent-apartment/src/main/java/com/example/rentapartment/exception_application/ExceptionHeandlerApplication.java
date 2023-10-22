@@ -1,8 +1,9 @@
 package com.example.rentapartment.exception_application;
 
+import com.example.rentapartment.exception.NotFoundApartmentException;
 import com.example.rentapartment.exception.NotFoundBodyResponseException;
 import com.example.rentapartment.exception.NotFoundInformation;
-import com.example.rentapartment.exception.NotFoundUser;
+import com.example.rentapartment.exception.NotFoundUserException;
 import com.example.rentapartment.response_object.ResponseObjectList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,10 +27,14 @@ public class ExceptionHeandlerApplication {
                 .badRequest()
                 .body(responseObjectList);
     }
-    @ExceptionHandler(NotFoundUser.class)
-    public ResponseEntity<?>responseNotFoundUser(NotFoundUser e){
-        ResponseObjectList responseObjectList=new ResponseObjectList(e.getEXCEPTION_NOT_FOUND_USER(),null);
-        return ResponseEntity.badRequest().body(responseObjectList);
+    @ExceptionHandler(NotFoundUserException.class)
+    public ResponseEntity<?>responseNotFoundUser(NotFoundUserException e){
+
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+    @ExceptionHandler(NotFoundApartmentException.class)
+    public ResponseEntity<?>responseNotFoundApartment(NotFoundApartmentException e){
+        return ResponseEntity.badRequest().body(e.getMessage());
     }
 
 }

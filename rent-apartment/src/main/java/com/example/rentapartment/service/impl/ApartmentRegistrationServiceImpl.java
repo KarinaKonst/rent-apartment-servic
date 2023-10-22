@@ -3,24 +3,22 @@ package com.example.rentapartment.service.impl;
 import com.example.rentapartment.entity.AddressEntity;
 import com.example.rentapartment.entity.ApartmentEntity;
 import com.example.rentapartment.entity.ClientEntity;
+import com.example.rentapartment.exception.NotFoundApartmentException;
 import com.example.rentapartment.mapper.FullMapper;
 import com.example.rentapartment.model.ApartmentRegistration;
-import com.example.rentapartment.model.ResponseInfo;
 import com.example.rentapartment.repository.AddressRepository;
 import com.example.rentapartment.repository.ApartmentRepository;
 import com.example.rentapartment.repository.ClientRepository;
-import com.example.rentapartment.security_model.ValideUserSession;
 import com.example.rentapartment.service.ApartmentRegistrationService;
-import com.example.rentapartment.service.ClientRegistrationService;
+import com.example.rentapartment.service.Base64Manager;
+import com.example.rentapartment.service.ValidateUserToken;
 import com.example.rentapartment.validation.ValidationAtApartmentRegistration;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static com.example.rentapartment.constant.ConstantProject.*;
 
@@ -30,60 +28,48 @@ public class ApartmentRegistrationServiceImpl implements ApartmentRegistrationSe
     private static final Logger logger = LoggerFactory.getLogger(ApartmentRegistrationServiceImpl.class);
 
     private final FullMapper fullMapper;
-
     private final AddressRepository addressRepository;
-
     private final ApartmentRepository apartmentRepository;
-
     private final ValidationAtApartmentRegistration validationAtApartmentRegistration;
-
-    private final ValideUserSession valideUserSession;
-
-    private final ClientRegistrationService clientRegistrationService;
-
+    private final ValidateUserToken validateUserToken;
     private final ClientRepository clientRepository;
-    private Base64ManagerImpl base64Manager;
+
 
 
     @Override
-    public ResponseInfo registrationApartment(ApartmentRegistration apartmentRegistration) {
+    public String registrationApartment(ApartmentRegistration apartmentRegistration, String authToken) {
         logger.debug("rent-apartment : registrationApartment -> started");
         logger.info("rent-apartment : registrationApartment -> started");
         logger.error("rent-apartment : registrationApartment -> started");
 
-        ResponseInfo responseInfo = new ResponseInfo();
-
         validationDuringRegistration(apartmentRegistration);
-
         if (validationAtApartmentRegistration.getList().isEmpty()) {
-            if (addressRepository.getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(apartmentRegistration.getCity(),
+            AddressEntity apartment = addressRepository.getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(apartmentRegistration.getCity(),
                     apartmentRegistration.getStreet(),
                     apartmentRegistration.getNumberHouse(),
-                    apartmentRegistration.getNumberApartment()) == null) {
-
-                apartmentRepository.save(fullMapper.apartmentRegistrationToApartmentEntity(apartmentRegistration));
-                Long lastId = apartmentRepository.getLastId();
-                AddressEntity addressEntity = fullMapper.apartmentRegistrationToAddressEntity(apartmentRegistration);
-                ApartmentEntity apartmentEntity = apartmentRepository.findById(lastId).get();
-                addressEntity.setApartmentEntity(apartmentEntity);
-                addressRepository.save(addressEntity);
-                responseInfo.setMessage("Квартира успешно зарегистрирована!");
-
-                ClientEntity clientEntity = clientRepository.getClientEntityByEmail(base64Manager.encode(valideUserSession.getEmail()));
-                addressEntity.getApartmentEntity().setOwner(clientEntity);
-                clientEntity.setCommerce(true);
-                apartmentEntity.setAvailability(true);
-                apartmentRepository.save(apartmentEntity);
-                clientRepository.save(clientEntity);
-                return responseInfo;
+                    apartmentRegistration.getNumberApartment());
+            if (apartment != null) {
+                throw new NotFoundApartmentException(APART_EXISTS);
             }
-            responseInfo.setErrorMessage(new ArrayList<>(Arrays.asList("Квартира с таким адресом уже существует!")));
-            return responseInfo;
+            apartmentRepository.save(fullMapper.apartmentRegistrationToApartmentEntity(apartmentRegistration));
+            Long lastId = apartmentRepository.getLastId();
+            AddressEntity addressEntity = fullMapper.apartmentRegistrationToAddressEntity(apartmentRegistration);
+            ApartmentEntity apartmentEntity = apartmentRepository.findById(lastId).get();
+            addressEntity.setApartmentEntity(apartmentEntity);
+            addressRepository.save(addressEntity);
+
+            ClientEntity clientEntity = clientRepository.getClientEntityByEmail(validateUserToken.getEmailSession(authToken));
+            addressEntity.getApartmentEntity().setOwner(clientEntity);
+            clientEntity.setCommerce(true);
+            apartmentEntity.setAvailability(true);
+            apartmentRepository.save(apartmentEntity);
+            clientRepository.save(clientEntity);
+            return GOOD_REG_APART;
 
         }
-        responseInfo.setErrorMessage(new ArrayList<>(validationAtApartmentRegistration.getList()));
+        ArrayList<String> list = new ArrayList<>(validationAtApartmentRegistration.getList());
         validationAtApartmentRegistration.getList().clear();
-        return responseInfo;
+        return list.toString();
     }
 
 

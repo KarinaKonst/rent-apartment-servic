@@ -40,6 +40,8 @@ public class ClientEntity {
     private String parentCity;
     @Column(name = "count_of_grocery")
     private Integer countOfGrocery;
+    @Column(name = "session_token")
+    private String sessionToken;
 
     @Column(name = "commerce")
     private Boolean commerce;

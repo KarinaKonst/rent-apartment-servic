@@ -1,6 +1,5 @@
 package com.example.rentapartment.integration_api.impl;
 
-import com.example.rentapartment.dto.GeacoderListValue;
 import com.example.rentapartment.dto.GeacoderResponseDto;
 import com.example.rentapartment.integration_api.RestTemplateConfigProject;
 import com.example.rentapartment.integration_api.RestTemplateManagerService;
@@ -9,9 +8,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.example.rentapartment.integration_api.RestTemplateConfigProject.INTEGRATION_URL;
 import static com.example.rentapartment.integration_api.RestTemplateConfigProject.OPEN_CAGE_API;

@@ -13,6 +13,7 @@ import com.example.interiorclient.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -35,7 +36,6 @@ public class ProductServiceImpl implements ProductService {
     public void throwInfoToProductService(Long id) {
         BookingHistoryEntity history = bookingHistoryRepository.findById(id).orElseThrow(() -> new NotFoundBookingHistoryException());
 
-
         ClientDto clientDto = sendlerMapper.getClientEntityToClientDto(history.getClientEntity());
         AddressDto addressDto = sendlerMapper.getAddressEntityToAddressDto(history.getApartmentEntity().getAddressEntity());
         Long idDiscount = checkingForProductDistribution(clientDto, addressDto, history);
@@ -44,8 +44,12 @@ public class ProductServiceImpl implements ProductService {
         bookingHistoryRepository.save(history);
         ProductEntity productEntity = promotionProductRepository.findById(idDiscount).get();
         emailSenderService.sendEmail(productEntity.getNameProduct(), productEntity.getDescription(), "sciline10@yandex.ru");
-
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Ошибка во время рассылки. Попробуйте еще раз.");
+        }
+        emailSenderService.sendEmail("Подтверждение брони", sendEmailMessage(history, addressDto, clientDto), "sciline10@yandex.ru");
     }
 
 
@@ -105,6 +109,35 @@ public class ProductServiceImpl implements ProductService {
         }
         return null;
     }
+
+    public String sendEmailMessage(BookingHistoryEntity history, AddressDto address, ClientDto client) {
+
+        String s = "Уважаемый(ая), " + history.getClientEntity().getFirstName() +
+                " \n\nВаше бронирование по адресу: " + history.getApartmentEntity().getAddressEntity().getCity() +
+                ", " + history.getApartmentEntity().getAddressEntity().getStreet() +
+                ", д." + history.getApartmentEntity().getAddressEntity().getNumberHouse() +
+                ", кв." + history.getApartmentEntity().getAddressEntity().getNumberApartment() +
+                " \nбыло подтверждено с " + history.getDateStart() + " до " + history.getDateEnd() +
+                " \nЦена апартаментов за сутки: " + history.getApartmentEntity().getPrice() + " рублей" +
+                " \nОбщая сумма проживания: " + totalAmount(history, address, client) + " рублей" +
+                ".\n\n Приятного отдыха!";
+        return s;
+
+    }
+
+    public long totalAmount(BookingHistoryEntity history, AddressDto address, ClientDto client) {
+        long daysBetween = ChronoUnit.DAYS.between(history.getDateStart(),history.getDateEnd());
+        Long idDiscont = checkingForProductDistribution(client, address, history);
+        ProductEntity productEntity = promotionProductRepository.findById(idDiscont).get();
+        Integer discount = productEntity.getDiscount();
+        String price = history.getApartmentEntity().getPrice();
+        int pr=Integer.parseInt(price);
+        long totalAmount = pr*daysBetween;
+        long amountDiscount = totalAmount - (totalAmount * discount / 100);
+        return amountDiscount;
+    }
+
+
 }
 
 

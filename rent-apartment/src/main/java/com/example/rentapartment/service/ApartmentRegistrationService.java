@@ -4,5 +4,5 @@ import com.example.rentapartment.model.ApartmentRegistration;
 import com.example.rentapartment.model.ResponseInfo;
 
 public interface ApartmentRegistrationService {
-    public ResponseInfo registrationApartment(ApartmentRegistration apartmentRegistration);
+    public String registrationApartment(ApartmentRegistration apartmentRegistration,String authToken);
 }
