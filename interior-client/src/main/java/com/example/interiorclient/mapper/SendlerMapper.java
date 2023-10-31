@@ -12,7 +12,6 @@ import org.mapstruct.Mapper;
 public interface SendlerMapper {
 
 
-    public ApartmentDto getApartmentEntityToApartmentDto(ApartmentEntity apartmentEntity);
     public ClientDto getClientEntityToClientDto(ClientEntity clientEntity);
     public AddressDto getAddressEntityToAddressDto(AddressEntity addressEntity);
 

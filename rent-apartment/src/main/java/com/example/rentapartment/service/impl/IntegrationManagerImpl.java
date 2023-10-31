@@ -14,14 +14,14 @@ public class IntegrationManagerImpl implements IntegrationManager {
     RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public String throwInfoOnRentProduct(Long id) {
+    public void throwInfoOnRentProduct(Long id) {
 
-        String body = restTemplate.exchange(
-                String.format(BASE_URL,id),
+        restTemplate.exchange(
+                String.format(BASE_URL, id),
                 HttpMethod.POST,
                 new HttpEntity<>(null, null),
-                String.class).getBody();
-        return body;
+                String.class);
+
     }
 
 

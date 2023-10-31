@@ -35,12 +35,10 @@ public class ApartmentRegistrationServiceImpl implements ApartmentRegistrationSe
     private final ClientRepository clientRepository;
 
 
-
     @Override
     public String registrationApartment(ApartmentRegistration apartmentRegistration, String authToken) {
-        logger.debug("rent-apartment : registrationApartment -> started");
         logger.info("rent-apartment : registrationApartment -> started");
-        logger.error("rent-apartment : registrationApartment -> started");
+
 
         validationDuringRegistration(apartmentRegistration);
         if (validationAtApartmentRegistration.getList().isEmpty()) {

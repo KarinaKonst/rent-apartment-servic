@@ -10,6 +10,8 @@ import com.example.rentapartment.service.Base64Manager;
 import com.example.rentapartment.service.ClientRegistrationService;
 import com.example.rentapartment.validation.ValidationAtUserRegistration;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -24,6 +26,8 @@ import static java.util.Objects.isNull;
 @RequiredArgsConstructor
 public class ClientRegistrationServiceImpl implements ClientRegistrationService {
 
+    private static final Logger logger = LoggerFactory.getLogger(ClientRegistrationServiceImpl.class);
+
     private final ClientRepository clientRepository;
     private final FullMapper fullMapper;
     private final ValidationAtUserRegistration validationAtUserRegistration;
@@ -34,6 +38,8 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
      * Метод регистрации нового пользователя
      */
     public String registrationUser(UserRegistrationInfo userRegistrationInfo) {
+        logger.info("rent-apartment : registrationUser -> started");
+
         validationDuringRegistration(userRegistrationInfo);
         if (validationAtUserRegistration.getList().isEmpty()) {
             ClientEntity client = clientRepository.getClientEntityByEmail(userRegistrationInfo.getEmail());
@@ -56,6 +62,7 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
      */
 
     public String authorizationUser(UserAuthorizationInfo userAuthorizationInfo) {
+        logger.info("rent-apartment : authorizationUser -> started");
 
         ClientEntity client = clientRepository.getClientEntityByEmail(userAuthorizationInfo.getEmail());
         if (isNull(client)) {
@@ -70,7 +77,6 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
         return token;
 
     }
-
 
     private String generateAuthToken() {
         String uniqueToken = UUID.randomUUID().toString();
@@ -106,17 +112,6 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
         validationAtUserRegistration.checkPassword(userRegistrationInfo.getPassword());
     }
 
-    /**
-     * Метод декодирования и записи поля ClientEntityByEmailAndPassword
-     */
-    private void decodeAndSetClientEntityByEmailAndPassword(ClientEntity clientEntityByEmailAndPassword) {
-        String decodePassword = base64Manager.decode(clientEntityByEmailAndPassword.getPassword());
-        String decodeEmail = base64Manager.decode(clientEntityByEmailAndPassword.getEmail());
-        String decodeNumberPhone = base64Manager.decode(clientEntityByEmailAndPassword.getNumberPhone());
-        clientEntityByEmailAndPassword.setPassword(decodePassword);
-        clientEntityByEmailAndPassword.setNumberPhone(decodeNumberPhone);
-        clientEntityByEmailAndPassword.setEmail(decodeEmail);
-    }
 
     /**
      * Метод кодирования и записи поля client

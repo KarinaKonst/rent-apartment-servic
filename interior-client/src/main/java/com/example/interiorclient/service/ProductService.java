@@ -5,7 +5,6 @@ import com.example.interiorclient.dto.AddressDto;
 import com.example.interiorclient.dto.ClientDto;
 import com.example.interiorclient.entity.BookingHistoryEntity;
 
-import java.time.LocalDateTime;
 
 public interface ProductService {
     public void throwInfoToProductService(Long id);

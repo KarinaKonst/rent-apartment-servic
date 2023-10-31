@@ -8,12 +8,15 @@ import com.example.interiorclient.exception.NotFoundBookingHistoryException;
 import com.example.interiorclient.mapper.SendlerMapper;
 import com.example.interiorclient.repository.BookingHistoryRepository;
 import com.example.interiorclient.repository.PromotionProductRepository;
+import com.example.interiorclient.service.ConsumerService;
 import com.example.interiorclient.service.EmailSenderService;
 import com.example.interiorclient.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.Duration;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -22,6 +25,8 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
+    private static final Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
+
 
     private final SendlerMapper sendlerMapper;
 
@@ -30,10 +35,27 @@ public class ProductServiceImpl implements ProductService {
     private final EmailSenderService emailSenderService;
 
     private final BookingHistoryRepository bookingHistoryRepository;
+    private final ConsumerService consumerService;
 
 
     @Override
     public void throwInfoToProductService(Long id) {
+        logger.info("interior-client : throwInfoToProductService -> started");
+
+        List<String> message = consumerService.getMessage();
+        if (message.isEmpty()) {
+            sendMessage(id);
+        }
+        for (String s : message) {
+            long idKafka = Long.valueOf(s).longValue();
+
+            sendMessage(idKafka);
+
+        }
+        sendMessage(id);
+    }
+
+    private void sendMessage(Long id) {
         BookingHistoryEntity history = bookingHistoryRepository.findById(id).orElseThrow(() -> new NotFoundBookingHistoryException());
 
         ClientDto clientDto = sendlerMapper.getClientEntityToClientDto(history.getClientEntity());
@@ -50,6 +72,7 @@ public class ProductServiceImpl implements ProductService {
             throw new RuntimeException("Ошибка во время рассылки. Попробуйте еще раз.");
         }
         emailSenderService.sendEmail("Подтверждение брони", sendEmailMessage(history, addressDto, clientDto), "sciline10@yandex.ru");
+
     }
 
 
@@ -126,13 +149,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public long totalAmount(BookingHistoryEntity history, AddressDto address, ClientDto client) {
-        long daysBetween = ChronoUnit.DAYS.between(history.getDateStart(),history.getDateEnd());
+        long daysBetween = ChronoUnit.DAYS.between(history.getDateStart(), history.getDateEnd());
         Long idDiscont = checkingForProductDistribution(client, address, history);
         ProductEntity productEntity = promotionProductRepository.findById(idDiscont).get();
         Integer discount = productEntity.getDiscount();
         String price = history.getApartmentEntity().getPrice();
-        int pr=Integer.parseInt(price);
-        long totalAmount = pr*daysBetween;
+        int pr = Integer.parseInt(price);
+        long totalAmount = pr * daysBetween;
         long amountDiscount = totalAmount - (totalAmount * discount / 100);
         return amountDiscount;
     }

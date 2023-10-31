@@ -11,11 +11,10 @@ import com.example.rentapartment.map.CityMap;
 import com.example.rentapartment.mapper.FullMapper;
 import com.example.rentapartment.repository.*;
 import com.example.rentapartment.response_object.ResponseObjectList;
-import com.example.rentapartment.service.ClientRegistrationService;
-import com.example.rentapartment.service.IntegrationManager;
-import com.example.rentapartment.service.RentApartmentService;
-import com.example.rentapartment.service.ValidateUserToken;
+import com.example.rentapartment.service.*;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -27,6 +26,7 @@ import static java.util.Objects.isNull;
 @Service
 @RequiredArgsConstructor
 public class RentApartmentServiceImpl implements RentApartmentService {
+    private static final Logger logger = LoggerFactory.getLogger(RentApartmentServiceImpl.class);
 
     private final AddressRepository addressRepository;
     private final ApartmentRepository apartmentRepository;
@@ -36,9 +36,8 @@ public class RentApartmentServiceImpl implements RentApartmentService {
     private final ClientRepository clientRepository;
     private final ValidateUserToken validateUserToken;
     private final IntegrationManager integrationManager;
-    private final ClientRegistrationService clientRegistrationService;
     private final BookingHistoryRepository bookingHistoryRepository;
-    private final Base64ManagerImpl base64Manager;
+    private final ProducerService producerService;
 
 
     /**
@@ -205,7 +204,11 @@ public class RentApartmentServiceImpl implements RentApartmentService {
 
 
     @Override
-    public AddressDto getApartmentByIdAndTotalAmount(Long id,String authToken, LocalDate start, LocalDate end) {
+    public AddressDto getApartmentByIdAndTotalAmount(Long id, String authToken, LocalDate start, LocalDate end) {
+
+        logger.info("rent-apartment : getApartmentByIdAndTotalAmount -> started");
+
+
         AddressEntity addressEntity = addressRepository.findById(id).get();
         ClientEntity clientEntity = clientRepository.getClientEntityByEmail(validateUserToken.getEmailSession(authToken));
 
@@ -233,8 +236,12 @@ public class RentApartmentServiceImpl implements RentApartmentService {
                 end,
                 dateBookingRegistration));
         Long lastIdInBookingHistory = bookingHistoryRepository.getLastId();
-
-        integrationManager.throwInfoOnRentProduct(lastIdInBookingHistory);
+        try {
+            integrationManager.throwInfoOnRentProduct(lastIdInBookingHistory);
+        } catch (Exception e) {
+            logger.error("rent-apartment : getApartmentByIdAndTotalAmount -> started");
+            producerService.getProducerInfo(lastIdInBookingHistory.toString());
+        }
 
         return addressDto;
     }
