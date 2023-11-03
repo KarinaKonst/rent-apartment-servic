@@ -46,13 +46,14 @@ public class ProductServiceImpl implements ProductService {
         if (message.isEmpty()) {
             sendMessage(id);
         }
-        for (String s : message) {
-            long idKafka = Long.valueOf(s).longValue();
-
-            sendMessage(idKafka);
-
+        else{
+            for (String s : message) {
+                long idKafka = Long.valueOf(s).longValue();
+                sendMessage(idKafka);
+            }
+            sendMessage(id);
         }
-        sendMessage(id);
+
     }
 
     private void sendMessage(Long id) {

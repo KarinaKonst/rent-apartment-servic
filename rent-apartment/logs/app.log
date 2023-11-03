@@ -102,3 +102,58 @@
 2023-09-22 11:44:47.374 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-09-22 11:44:47.377 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-09-22 11:44:47.386 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-11-01 13:13:20.830 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.4.Final
+2023-11-01 13:13:20.868 [main] INFO  c.e.r.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.8 with PID 16248 (started by kkoro in C:\Users\kkoro\IdeaProjects\rent-service-apartment\rent-apartment)
+2023-11-01 13:13:20.869 [main] INFO  c.e.r.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
+2023-11-01 13:13:21.655 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-01 13:13:21.796 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130 ms. Found 8 JPA repository interfaces.
+2023-11-01 13:13:22.146 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=c6247074-93d9-3990-8d36-ef9cb6948b8c
+2023-11-01 13:13:23.132 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-01 13:13:23.204 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-11-01 13:13:23.372 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-11-01 13:13:23.534 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@71eff6a3
+2023-11-01 13:13:23.535 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-11-01 13:13:23.580 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-11-01 13:13:24.338 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-01 13:13:24.347 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-01 13:13:24.765 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.repository.AddressRepository
+2023-11-01 13:13:25.195 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.repository.ApartmentRepository
+2023-11-01 13:13:25.220 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.repository.RaitingRepository
+2023-11-01 13:13:25.265 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.repository.ClientRepository
+2023-11-01 13:13:25.431 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.repository.ApiKeyRepository
+2023-11-01 13:13:25.626 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-01 13:13:26.266 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2023-11-01 13:13:26.267 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2023-11-01 13:13:26.268 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2023-11-01 13:13:26.370 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2023-11-01 13:13:26.540 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-01 13:13:26.566 [main] INFO  c.e.r.a.ApplicationControllerTest - Started ApplicationControllerTest in 6.166 seconds (process running for 7.053)
+2023-11-01 13:13:26.658 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.rentapartment.controller.RentApartmentController
+2023-11-01 13:13:26.931 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.rentapartment.RentApartmentApplicationTests]: RentApartmentApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-11-01 13:13:26.936 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.rentapartment.RentApartmentApplication for test class com.example.rentapartment.RentApartmentApplicationTests
+2023-11-01 13:13:27.052 [main] INFO  c.e.r.RentApartmentApplicationTests - Starting RentApartmentApplicationTests using Java 17.0.8 with PID 16248 (started by kkoro in C:\Users\kkoro\IdeaProjects\rent-service-apartment\rent-apartment)
+2023-11-01 13:13:27.052 [main] INFO  c.e.r.RentApartmentApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2023-11-01 13:13:27.233 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-01 13:13:27.258 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 8 JPA repository interfaces.
+2023-11-01 13:13:27.303 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=9d0a5faf-50e8-3488-bd00-4f10e62da15a
+2023-11-01 13:13:27.355 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-01 13:13:27.361 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2023-11-01 13:13:27.382 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@1df6f57d
+2023-11-01 13:13:27.382 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2023-11-01 13:13:27.387 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-11-01 13:13:27.515 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-11-01 13:13:27.515 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-01 13:13:27.658 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-01 13:13:27.852 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2023-11-01 13:13:27.936 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-11-01 13:13:27.945 [main] INFO  c.e.r.RentApartmentApplicationTests - Started RentApartmentApplicationTests in 1.005 seconds (process running for 8.432)
+2023-11-01 13:13:27.980 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2023-11-01 13:13:27.981 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
+2023-11-01 13:13:27.986 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-01 13:13:27.990 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-11-01 13:13:27.996 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-11-01 13:13:28.000 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2023-11-01 13:13:28.000 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
+2023-11-01 13:13:28.002 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-01 13:13:28.002 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2023-11-01 13:13:28.008 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.

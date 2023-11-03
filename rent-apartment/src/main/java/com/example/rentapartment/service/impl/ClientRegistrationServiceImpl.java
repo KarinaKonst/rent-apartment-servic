@@ -84,7 +84,6 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
 
     }
 
-
     /**
      * Метод валидации полей при регистрации
      */
