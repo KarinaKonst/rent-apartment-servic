@@ -32,8 +32,6 @@ public class ClientEntity {
     @Column(name = "number_phone")
     private String numberPhone;
 
-    @Column(name = "client_rating")
-    private String clientRating;
     @Column(name = "email_address")
     private String email;
     @Column(name = "password")
@@ -45,13 +43,6 @@ public class ClientEntity {
 
     @Column(name = "commerce")
     private Boolean commerce;
-
-//    @ManyToOne
-//    @JoinColumn(name="product_first")
-//    private ProductEntity productFirst;
-//    @ManyToOne
-//    @JoinColumn(name="product_second")
-//    private ProductEntity productSecond;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "clientEntity")
     private List<BookingHistoryEntity> bookingHistoryList;

@@ -5,11 +5,9 @@ import com.example.rentapartment.dto.AddressDto;
 import com.example.rentapartment.dto.ApartmentDto;
 import com.example.rentapartment.dto.ClientDto;
 import com.example.rentapartment.dto.InfoByCityDto;
-import com.example.rentapartment.entity.AddressEntity;
-import com.example.rentapartment.entity.ApartmentEntity;
-import com.example.rentapartment.entity.BookingHistoryEntity;
-import com.example.rentapartment.entity.ClientEntity;
+import com.example.rentapartment.entity.*;
 import com.example.rentapartment.model.ApartmentRegistration;
+import com.example.rentapartment.model.FeedbackModel;
 import com.example.rentapartment.security_model.UserRegistrationInfo;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -59,6 +57,7 @@ public interface FullMapper {
         bookingHistoryEntity.setDateRegistrationBooking(dateBookingRegistration);
         return bookingHistoryEntity;
     }
+    RaitingEntity feedbackToRaitingEntity(FeedbackModel feedbackModel);
 
 }
 

@@ -27,6 +27,7 @@ public class BookingHistoryEntity {
     @ManyToOne
     @JoinColumn(name = "apartment_id")
     private ApartmentEntity apartmentId;
+
     @Column(name = "date_start")
     private LocalDate dateStart;
     @Column(name = "date_end")

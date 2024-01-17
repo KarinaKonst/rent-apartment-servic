@@ -31,15 +31,20 @@ public class ApartmentEntity {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartmentEntity")
     private AddressEntity addressEntity;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartment")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "apartment")
     private List<RaitingEntity> raitingEntityList;
 
     @ManyToOne
     @JoinColumn(name="current_tenant")
     private ClientEntity currentTenant;
+
     @ManyToOne
     @JoinColumn(name="owner")
     private ClientEntity  owner;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartmentId")
     private List<BookingHistoryEntity> bookingHistoryList;
+
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartmentEntity")
+    private TotalRatingEntity totalRating;
 }

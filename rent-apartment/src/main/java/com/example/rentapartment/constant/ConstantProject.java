@@ -7,6 +7,7 @@ public class ConstantProject {
      */
     public final static String SEARCH_CITY_FROM_TREE = "/results/0/components/city";
     public static final String BASE_URL = "http://localhost:9098/product-send?id=%s";
+    public static final String FILE_REPORT_TEMPLATE = "C:\\Users\\kkoro\\IdeaProjects\\rent-service-apartment\\report-template.xlsx";
 
     /**
      * FieldConstant
@@ -32,12 +33,14 @@ public class ConstantProject {
     public final static String API = "/api";
     public final static String SAVE_TO_BASE = "/savetobase";
     public final static String REGISTRATION_APARTMENT = "/registration_apartment";
-    public final static String GET_INFO_BY_STREET = "/getinfobystreet/{street}";
+    public final static String GET_INFO_BY_STREET = "/getinfobystreet";
     public final static String GET_INFO_BY_CITY = "/getinfobycity";
     public final static String CHOICE_APARTMENT = "/choice-apartment";
     public final static String GET_APARTMENT_BY_PRICE_AND_NUMBER_OF_ROOMS = "/price/numberOfRooms";
     public final static String USER_REGISTRATION = "/user-registration";
     public final static String USER_AUTHORIZATION = "/user-authorization";
+    public final static String FEEDBACK = "/feedback";
+    public final static String GET_REPORT = "/getreport";
 
     /**
      * ExceptionConstant
@@ -47,7 +50,8 @@ public class ConstantProject {
     public final static String EXCEPTION_NOT_FOUND_USER = "Пользователь не найден! Зарегистрируйтесь.";
     public final static String EXCEPTION_BAD_PASSWORD = "Неверный пароль!";
     public final static String USER_EXISTS = "Пользователь с таким именем уже существует!";
-    public final static String APART_EXISTS ="Квартира с таким адресом уже существует!";
+    public final static String APART_EXISTS = "Квартира с таким адресом уже существует!";
+    public final static String EXCEPTION_APART_BOOKING = "Невозможно забронировать квартиру.В данный момент квартира забронирована.";
 
 
     /**
@@ -56,6 +60,7 @@ public class ConstantProject {
 
     public final static String GOOD_AUTH = "Вы успешно авторизированы!";
     public final static String GOOD_REG_USER = "Пользователь успешно зарегистрирован!Вы можете войти в систему.";
-    public final static String GOOD_REG_APART="Квартира успешно зарегистрирована!";
+    public final static String GOOD_REG_APART = "Квартира успешно зарегистрирована!";
+
 
 }

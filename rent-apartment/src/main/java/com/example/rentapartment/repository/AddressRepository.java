@@ -1,6 +1,7 @@
 package com.example.rentapartment.repository;
 
 import com.example.rentapartment.entity.AddressEntity;
+import com.example.rentapartment.entity.ApartmentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,8 @@ public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
     @Query("SELECT a FROM AddressEntity a where a.city=?1")
     List<AddressEntity> getAddressEntitiesListOnTheCity(String city);
 
-    AddressEntity getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(String city,String street,String numberHouse, String numberApartment);
+    AddressEntity getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(String city, String street, String numberHouse, String numberApartment);
+
 
 
 

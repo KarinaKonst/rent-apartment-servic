@@ -15,4 +15,6 @@ public interface ClientRepository extends JpaRepository<ClientEntity,Long> {
     List<ClientEntity> getClientEntitiesBySessionTokenIsNotNull();
 
 
+
+
 }

@@ -5,10 +5,12 @@ import com.example.rentapartment.dto.ApartmentDto;
 import com.example.rentapartment.dto.Components;
 import com.example.rentapartment.dto.GeacoderResponseDto;
 import com.example.rentapartment.entity.*;
+import com.example.rentapartment.exception.NotFoundApartmentException;
 import com.example.rentapartment.exception.NotFoundInformation;
 import com.example.rentapartment.integration_api.RestTemplateManagerService;
 import com.example.rentapartment.map.CityMap;
 import com.example.rentapartment.mapper.FullMapper;
+import com.example.rentapartment.model.FeedbackModel;
 import com.example.rentapartment.repository.*;
 import com.example.rentapartment.response_object.ResponseObjectList;
 import com.example.rentapartment.service.*;
@@ -20,7 +22,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+import static com.example.rentapartment.constant.ConstantProject.EXCEPTION_APART_BOOKING;
 import static java.util.Objects.isNull;
 
 @Service
@@ -136,7 +141,7 @@ public class RentApartmentServiceImpl implements RentApartmentService {
     /**
      * Метод считает средний рейтинг квартиры
      */
-    private Integer getAverageValueRaiting(List<RaitingEntity> result) {
+    public Integer getAverageValueRaiting(List<RaitingEntity> result) {
         int sum = 0;
         for (RaitingEntity a : result) {
             sum = sum + a.getRating();
@@ -191,13 +196,6 @@ public class RentApartmentServiceImpl implements RentApartmentService {
         List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(addressEntity.getApartmentEntity().getId());
         AddressDto addressDto = fullMapper.addressEntityToAddressDto(addressEntity);
         ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(addressEntity.getApartmentEntity());
-
-        if (!raitingEntitiesByApartmentId.isEmpty()) {
-            Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
-            apartmentDto.setRating(averageRaiting);
-        } else {
-            apartmentDto.setRating(0);
-        }
         addressDto.setApartmentDto(apartmentDto);
         return addressDto;
     }
@@ -208,42 +206,56 @@ public class RentApartmentServiceImpl implements RentApartmentService {
 
         logger.info("rent-apartment : getApartmentByIdAndTotalAmount -> started");
 
-
         AddressEntity addressEntity = addressRepository.findById(id).get();
-        ClientEntity clientEntity = clientRepository.getClientEntityByEmail(validateUserToken.getEmailSession(authToken));
+        Boolean availability = addressEntity.getApartmentEntity().getAvailability();
+        if (availability == true) {
 
-        clientEntity.setCountOfGrocery(increment(clientEntity.getCountOfGrocery()));
-        addressEntity.getApartmentEntity().setAvailability(false);
-        addressEntity.getApartmentEntity().setCurrentTenant(clientEntity);
+            ClientEntity clientEntity = clientRepository.getClientEntityBySessionToken(authToken);
 
-        clientRepository.save(clientEntity);
-        addressRepository.save(addressEntity);
-        List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(addressEntity.getApartmentEntity().getId());
-        AddressDto addressDto = fullMapper.addressEntityToAddressDto(addressEntity);
-        ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(addressEntity.getApartmentEntity());
-        if (!raitingEntitiesByApartmentId.isEmpty()) {
-            Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
-            apartmentDto.setRating(averageRaiting);
+            clientEntity.setCountOfGrocery(increment(clientEntity.getCountOfGrocery()));
+            addressEntity.getApartmentEntity().setAvailability(false);
+            addressEntity.getApartmentEntity().setCurrentTenant(clientEntity);
 
-        } else {
-            apartmentDto.setRating(0);
+            clientRepository.save(clientEntity);
+            addressRepository.save(addressEntity);
+            List<RaitingEntity> raitingEntitiesByApartmentId = raitingRepository.findRaitingEntitiesByApartment_Id(addressEntity.getApartmentEntity().getId());
+            AddressDto addressDto = fullMapper.addressEntityToAddressDto(addressEntity);
+            ApartmentDto apartmentDto = fullMapper.apartmentEntityToApartmentDto(addressEntity.getApartmentEntity());
+            if (!raitingEntitiesByApartmentId.isEmpty()) {
+                Integer averageRaiting = getAverageValueRaiting(raitingEntitiesByApartmentId);
+                apartmentDto.setRating(averageRaiting);
+
+            } else {
+                apartmentDto.setRating(0);
+            }
+            addressDto.setApartmentDto(apartmentDto);
+            LocalDate dateBookingRegistration = LocalDate.now();
+            bookingHistoryRepository.save(fullMapper.prepareBookingEntity(addressEntity.getApartmentEntity(),
+                    clientEntity,
+                    start,
+                    end,
+                    dateBookingRegistration));
+            Long lastIdInBookingHistory = bookingHistoryRepository.getLastId();
+            try {
+                integrationManager.throwInfoOnRentProduct(lastIdInBookingHistory);
+            } catch (Exception e) {
+                logger.error("rent-apartment : getApartmentByIdAndTotalAmount -> started");
+                producerService.getProducerInfo(lastIdInBookingHistory.toString());
+            }
+
+            return addressDto;
         }
-        addressDto.setApartmentDto(apartmentDto);
-        LocalDate dateBookingRegistration = LocalDate.now();
-        bookingHistoryRepository.save(fullMapper.prepareBookingEntity(addressEntity.getApartmentEntity(),
-                clientEntity,
-                start,
-                end,
-                dateBookingRegistration));
-        Long lastIdInBookingHistory = bookingHistoryRepository.getLastId();
-        try {
-            integrationManager.throwInfoOnRentProduct(lastIdInBookingHistory);
-        } catch (Exception e) {
-            logger.error("rent-apartment : getApartmentByIdAndTotalAmount -> started");
-            producerService.getProducerInfo(lastIdInBookingHistory.toString());
-        }
+        throw new NotFoundApartmentException(EXCEPTION_APART_BOOKING);
 
-        return addressDto;
+    }
+
+    @Override
+    public String sendFeedback(FeedbackModel feedbackModel) {
+        ApartmentEntity apartment = apartmentRepository.findById(feedbackModel.getId()).get();
+        RaitingEntity raitingEntity = fullMapper.feedbackToRaitingEntity(feedbackModel);
+        raitingEntity.setApartment(apartment);
+        raitingRepository.save(raitingEntity);
+        return "Отзыв успешно добавлен!";
     }
 
     public Integer increment(int countOfGrocery) {

@@ -1,1 +1,0 @@
-ALTER TABLE client_info DROP COLUMN client_rating;

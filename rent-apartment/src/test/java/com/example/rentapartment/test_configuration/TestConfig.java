@@ -3,6 +3,7 @@ package com.example.rentapartment.test_configuration;
 import com.example.rentapartment.dto.Components;
 import com.example.rentapartment.dto.GeacoderListValue;
 import com.example.rentapartment.dto.GeacoderResponseDto;
+import com.example.rentapartment.model.FeedbackModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,6 @@ import java.util.List;
 public class TestConfig {
 
     public static final String LAT = "53.2007";
-
     public static final String LON = "45.0046";
     public static final String LAT_NAME = "latitude";
     public static final String LON_NAME = "longitude";
@@ -24,5 +24,10 @@ public class TestConfig {
         return geacoderResponseDto;
 
     }
+    public static FeedbackModel getFeedbackModel(){
+        return new FeedbackModel("Отлично",5,11L);
+    }
+
+
 
 }

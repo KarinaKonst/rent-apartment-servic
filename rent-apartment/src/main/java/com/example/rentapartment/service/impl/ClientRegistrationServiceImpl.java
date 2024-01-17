@@ -65,6 +65,9 @@ public class ClientRegistrationServiceImpl implements ClientRegistrationService 
         logger.info("rent-apartment : authorizationUser -> started");
 
         ClientEntity client = clientRepository.getClientEntityByEmail(userAuthorizationInfo.getEmail());
+        if(client.getEmail().equals("adminTest")&& base64Manager.decode(client.getPassword()).equals(userAuthorizationInfo.getPassword())){
+            return "Вход под учетной записью Администратора успешно выполнен!";
+        }
         if (isNull(client)) {
             throw new NotFoundUserException(EXCEPTION_NOT_FOUND_USER);
         }

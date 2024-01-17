@@ -17,4 +17,6 @@ public interface RaitingRepository extends JpaRepository<RaitingEntity,Long> {
     public  List<RaitingEntity> findRaitingEntitiesByApartment_Id(Long id);
 
 
+
+
 }

@@ -6,5 +6,4 @@ CREATE TABLE IF NOT EXISTS raiting_info(
     message varchar(1000),
     raiting int4,
     apartment_id int8 REFERENCES apartment_info(id)
-
     );

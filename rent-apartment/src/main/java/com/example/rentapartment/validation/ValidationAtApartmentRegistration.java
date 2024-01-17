@@ -33,6 +33,9 @@ public class ValidationAtApartmentRegistration {
             list.add("Поле " + name + " содержит недопустимые символы!");
         }
     }
+    /**
+     * Метод проверки на допустимые значения
+     */
 
     public void checkingForIntegers(String name,String value){
         if(value.matches(".*\\d.*")==false){

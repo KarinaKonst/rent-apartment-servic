@@ -29,9 +29,7 @@ public class ApartmentEntity {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartmentEntity")
     private AddressEntity addressEntity;
-    @ManyToOne
-    @JoinColumn(name="renter_id")
-    private RenterEntity renterEntity;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "apartment")
     private List<RaitingEntity> raitingEntityList;
 

@@ -11,6 +11,10 @@ import java.util.List;
 public interface ApartmentRepository extends JpaRepository<ApartmentEntity, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM apartment_info ORDER BY id DESC LIMIT 1")
     Long getLastId();
+    List<ApartmentEntity> getApartmentEntitiesByAvailabilityIsFalse();
 
     List<ApartmentEntity> getApartmentEntitiesByPriceAndNumberOfRooms(String price, String numberOfRooms);
+    List<ApartmentEntity> getApartmentEntitiesByRaitingEntityListIsNotNull();
+
+
 }

@@ -8,6 +8,7 @@ import com.example.interiorclient.entity.BookingHistoryEntity;
 
 public interface ProductService {
     public void throwInfoToProductService(Long id);
+    public void sendMessage(Long id);
     public Long checkingForProductDistribution(ClientDto clientInfo, AddressDto addressDto, BookingHistoryEntity history);
 
 }

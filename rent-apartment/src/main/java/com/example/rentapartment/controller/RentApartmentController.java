@@ -2,6 +2,7 @@ package com.example.rentapartment.controller;
 
 import com.example.rentapartment.dto.AddressDto;
 import com.example.rentapartment.model.ApartmentRegistration;
+import com.example.rentapartment.model.FeedbackModel;
 import com.example.rentapartment.response_object.ResponseObjectList;
 import com.example.rentapartment.service.ApartmentRegistrationService;
 import com.example.rentapartment.service.RentApartmentService;
@@ -25,6 +26,9 @@ public class RentApartmentController {
     private ApartmentRegistrationService apartmentRegistrationService;
 
 
+    /**
+     * Метод регистрации новой квартиры
+     */
     @PostMapping(REGISTRATION_APARTMENT)
     public String registrationNewApartment(@RequestHeader String auth_token,
                                            @RequestBody ApartmentRegistration apartmentRegistration) {
@@ -37,7 +41,7 @@ public class RentApartmentController {
      * Метод возвращает список адресов квартир по названию улицы
      */
     @GetMapping(GET_INFO_BY_STREET)
-    public ResponseObjectList getInfoByStreet(@PathVariable String street) {
+    public ResponseObjectList getInfoByStreet(@RequestParam String street) {
         return rentApartmentService.getFullInformationByStreet(street);
 
     }
@@ -77,6 +81,18 @@ public class RentApartmentController {
                                                                           @RequestParam String numberOfRooms) {
 
         return rentApartmentService.getApartmentEntitiesByPriceAndNumberOfRooms(price, numberOfRooms);
+    }
+    /**
+     * Метод позволяет оставить отзыв о квартире
+     */
+    @PostMapping(FEEDBACK)
+    public String sendFeedback(@RequestHeader String auth_token,
+                               @RequestBody FeedbackModel feedbackModel){
+        validateUserToken.checkValidateSession(auth_token);
+
+         return rentApartmentService.sendFeedback(feedbackModel);
+
+
     }
 
 
