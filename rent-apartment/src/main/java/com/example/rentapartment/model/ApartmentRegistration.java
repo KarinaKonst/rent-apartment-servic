@@ -16,5 +16,16 @@ public class ApartmentRegistration {
     private String numberOfRooms;
     private String price;
 
+    public ApartmentRegistration(String city,String street,String numberHouse, String numberApartment, String numberOfRooms,String price) {
+        this.city = city;
+        this.street=street;
+        this.numberHouse=numberHouse;
+        this.numberApartment=numberApartment;
+        this.numberOfRooms=numberOfRooms;
+        this.price=price;
+    }
+
+
+
 
 }

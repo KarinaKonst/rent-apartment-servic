@@ -20,7 +20,8 @@ public interface AddressRepository extends JpaRepository<AddressEntity, Long> {
 
     AddressEntity getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(String city, String street, String numberHouse, String numberApartment);
 
-
+    @Query(nativeQuery = true, value = "SELECT * FROM address_apartment ORDER BY id DESC LIMIT 1")
+    Long getLastId();
 
 
 }

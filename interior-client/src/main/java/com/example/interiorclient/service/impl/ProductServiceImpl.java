@@ -41,20 +41,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void throwInfoToProductService(Long id) {
         logger.info("interior-client : throwInfoToProductService -> started");
-
-//        List<String> message = consumerService.getMessage();
-//        if (message.isEmpty()) {
-//            sendMessage(id);
-//        }
-//        else{
-//            for (String s : message) {
-//                long idKafka = Long.valueOf(s).longValue();
-//                sendMessage(idKafka);
-//            }
-//            sendMessage(id);
-//        }
         sendMessage(id);
-
     }
 
     public void sendMessage(Long id) {

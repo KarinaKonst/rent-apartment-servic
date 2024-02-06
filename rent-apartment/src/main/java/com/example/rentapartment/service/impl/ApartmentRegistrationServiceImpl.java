@@ -10,7 +10,6 @@ import com.example.rentapartment.repository.AddressRepository;
 import com.example.rentapartment.repository.ApartmentRepository;
 import com.example.rentapartment.repository.ClientRepository;
 import com.example.rentapartment.service.ApartmentRegistrationService;
-import com.example.rentapartment.service.Base64Manager;
 import com.example.rentapartment.service.ValidateUserToken;
 import com.example.rentapartment.validation.ValidationAtApartmentRegistration;
 import lombok.RequiredArgsConstructor;
@@ -42,25 +41,25 @@ public class ApartmentRegistrationServiceImpl implements ApartmentRegistrationSe
 
         validationDuringRegistration(apartmentRegistration);
         if (validationAtApartmentRegistration.getList().isEmpty()) {
-            AddressEntity apartment = addressRepository.getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(apartmentRegistration.getCity(),
+            AddressEntity addressEntity = addressRepository.getAddressEntitiesByCityAndStreetAndNumberHouseAndNumberApartment(apartmentRegistration.getCity(),
                     apartmentRegistration.getStreet(),
                     apartmentRegistration.getNumberHouse(),
                     apartmentRegistration.getNumberApartment());
-            if (apartment != null) {
+            if (addressEntity != null) {
                 throw new NotFoundApartmentException(APART_EXISTS);
             }
-            apartmentRepository.save(fullMapper.apartmentRegistrationToApartmentEntity(apartmentRegistration));
-            Long lastId = apartmentRepository.getLastId();
-            AddressEntity addressEntity = fullMapper.apartmentRegistrationToAddressEntity(apartmentRegistration);
-            ApartmentEntity apartmentEntity = apartmentRepository.findById(lastId).get();
-            addressEntity.setApartmentEntity(apartmentEntity);
-            addressRepository.save(addressEntity);
+            ApartmentEntity apartment = fullMapper.apartmentRegistrationToApartmentEntity(apartmentRegistration);
+            apartmentRepository.save(apartment);
+            AddressEntity address = fullMapper.apartmentRegistrationToAddressEntity(apartmentRegistration);
+            address.setApartmentEntity(apartment);
+            addressRepository.save(address);
 
-            ClientEntity clientEntity = clientRepository.getClientEntityByEmail(validateUserToken.getEmailSession(authToken));
-            addressEntity.getApartmentEntity().setOwner(clientEntity);
+            ClientEntity clientEntity = clientRepository.getClientEntityBySessionToken(authToken);
+
+            address.getApartmentEntity().setOwner(clientEntity);
             clientEntity.setCommerce(true);
-            apartmentEntity.setAvailability(true);
-            apartmentRepository.save(apartmentEntity);
+            apartment.setAvailability(true);
+            apartmentRepository.save(apartment);
             clientRepository.save(clientEntity);
             return GOOD_REG_APART;
 

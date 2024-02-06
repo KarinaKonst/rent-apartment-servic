@@ -17,7 +17,6 @@ import java.time.LocalDate;
 @Mapper(componentModel = "spring")
 public interface FullMapper {
 
-
     @Mapping(target = "rating", ignore = true)
     public ApartmentDto apartmentEntityToApartmentDto(ApartmentEntity apartmentEntity);
 

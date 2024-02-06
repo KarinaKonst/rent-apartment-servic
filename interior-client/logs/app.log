@@ -1,128 +1,27 @@
-2023-09-22 11:36:40.978 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.4.Final
-2023-09-22 11:36:41.064 [main] INFO  c.e.r.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.2 with PID 14240 (started by Админ in C:\Users\Админ\IdeaProjects\rent-apartment-servic\rent-apartment)
-2023-09-22 11:36:41.066 [main] INFO  c.e.r.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
-2023-09-22 11:36:43.092 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-09-22 11:36:43.548 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 439 ms. Found 8 JPA repository interfaces.
-2023-09-22 11:36:44.251 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a494aa18-729b-3c8f-bd0b-2bef960fce9c
-2023-09-22 11:36:46.279 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-09-22 11:36:46.402 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-09-22 11:36:46.994 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-09-22 11:36:47.749 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5f67181f
-2023-09-22 11:36:47.753 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-09-22 11:36:47.917 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-09-22 11:36:49.999 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-09-22 11:36:50.023 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:36:52.161 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-09-22 11:36:53.205 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2023-09-22 11:36:53.205 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2023-09-22 11:36:53.207 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2023-09-22 11:36:53.455 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-09-22 11:36:53.719 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-09-22 11:36:53.764 [main] INFO  c.e.r.a.ApplicationControllerTest - Started ApplicationControllerTest in 14.337 seconds (process running for 18.956)
-2023-09-22 11:36:54.118 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-09-22 11:36:54.121 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
-2023-09-22 11:36:54.132 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:36:54.135 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-09-22 11:36:54.143 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-09-22 11:38:53.038 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.4.Final
-2023-09-22 11:38:53.112 [main] INFO  c.e.r.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.2 with PID 7000 (started by Админ in C:\Users\Админ\IdeaProjects\rent-apartment-servic\rent-apartment)
-2023-09-22 11:38:53.114 [main] INFO  c.e.r.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
-2023-09-22 11:38:54.937 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-09-22 11:38:55.401 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 447 ms. Found 8 JPA repository interfaces.
-2023-09-22 11:38:56.054 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a494aa18-729b-3c8f-bd0b-2bef960fce9c
-2023-09-22 11:38:57.910 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-09-22 11:38:58.020 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-09-22 11:38:58.451 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-09-22 11:38:58.937 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ef60c02
-2023-09-22 11:38:58.943 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-09-22 11:38:59.036 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-09-22 11:39:00.988 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-09-22 11:39:01.012 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:39:03.086 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-09-22 11:39:04.208 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2023-09-22 11:39:04.209 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2023-09-22 11:39:04.212 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 3 ms
-2023-09-22 11:39:04.489 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-09-22 11:39:04.823 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-09-22 11:39:04.884 [main] INFO  c.e.r.a.ApplicationControllerTest - Started ApplicationControllerTest in 13.044 seconds (process running for 16.067)
-2023-09-22 11:39:43.274 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-09-22 11:39:43.277 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
-2023-09-22 11:39:43.286 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:39:43.294 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-09-22 11:39:43.324 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-09-22 11:41:11.072 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.4.Final
-2023-09-22 11:41:11.162 [main] INFO  c.e.r.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.2 with PID 9340 (started by Админ in C:\Users\Админ\IdeaProjects\rent-apartment-servic\rent-apartment)
-2023-09-22 11:41:11.165 [main] INFO  c.e.r.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
-2023-09-22 11:41:12.701 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-09-22 11:41:13.082 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 365 ms. Found 8 JPA repository interfaces.
-2023-09-22 11:41:13.659 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a494aa18-729b-3c8f-bd0b-2bef960fce9c
-2023-09-22 11:41:15.195 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-09-22 11:41:15.293 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-09-22 11:41:15.735 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-09-22 11:41:16.075 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@398694a6
-2023-09-22 11:41:16.079 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-09-22 11:41:16.185 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-09-22 11:41:17.894 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-09-22 11:41:17.914 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:41:19.629 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-09-22 11:41:20.533 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2023-09-22 11:41:20.533 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2023-09-22 11:41:20.535 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2023-09-22 11:41:20.875 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-09-22 11:41:21.261 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-09-22 11:41:21.304 [main] INFO  c.e.r.a.ApplicationControllerTest - Started ApplicationControllerTest in 11.253 seconds (process running for 13.525)
-2023-09-22 11:41:22.208 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-09-22 11:41:22.222 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
-2023-09-22 11:41:22.336 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:41:22.351 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-09-22 11:41:22.456 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-09-22 11:44:36.547 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 7.0.4.Final
-2023-09-22 11:44:36.646 [main] INFO  c.e.r.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.2 with PID 15516 (started by Админ in C:\Users\Админ\IdeaProjects\rent-apartment-servic\rent-apartment)
-2023-09-22 11:44:36.651 [main] INFO  c.e.r.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
-2023-09-22 11:44:38.674 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-09-22 11:44:39.049 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 359 ms. Found 8 JPA repository interfaces.
-2023-09-22 11:44:39.578 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a494aa18-729b-3c8f-bd0b-2bef960fce9c
-2023-09-22 11:44:41.097 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-09-22 11:44:41.193 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-09-22 11:44:41.560 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-09-22 11:44:41.850 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2864d34d
-2023-09-22 11:44:41.854 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-09-22 11:44:41.951 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-09-22 11:44:43.472 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-09-22 11:44:43.490 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:44:45.188 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-09-22 11:44:46.075 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2023-09-22 11:44:46.076 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2023-09-22 11:44:46.079 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 2 ms
-2023-09-22 11:44:46.323 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-09-22 11:44:46.579 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-09-22 11:44:46.624 [main] INFO  c.e.r.a.ApplicationControllerTest - Started ApplicationControllerTest in 11.034 seconds (process running for 13.124)
-2023-09-22 11:44:47.364 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-09-22 11:44:47.366 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application RENT-APARTMENT with eureka with status DOWN
-2023-09-22 11:44:47.374 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-09-22 11:44:47.377 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-09-22 11:44:47.386 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-11-01 13:12:55.309 [main] INFO  c.e.i.InteriorClientApplicationTests - Starting InteriorClientApplicationTests using Java 17.0.8 with PID 15072 (started by kkoro in C:\Users\kkoro\IdeaProjects\rent-service-apartment\interior-client)
-2023-11-01 13:12:55.311 [main] INFO  c.e.i.InteriorClientApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2023-11-01 13:12:56.085 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-01 13:12:56.274 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 179 ms. Found 3 JPA repository interfaces.
-2023-11-01 13:12:56.576 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=acdc7f28-2ada-3a85-a4e8-a2f20c278bd6
-2023-11-01 13:12:57.039 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-01 13:12:57.222 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-01 13:12:57.225 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-11-01 13:12:57.497 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-11-01 13:12:57.684 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-01 13:12:57.702 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-11-01 13:12:57.908 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@965bcbc
-2023-11-01 13:12:57.911 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-11-01 13:12:58.319 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-11-01 13:12:58.982 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-01 13:12:59.021 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-01 13:12:59.881 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-01 13:13:00.087 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-01 13:13:00.877 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-11-01 13:13:01.040 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-11-01 13:13:01.152 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
+2024-01-18 17:53:29.710 [main] INFO  c.e.i.a.ApplicationControllerTest - Starting ApplicationControllerTest using Java 17.0.8 with PID 7672 (started by kkoro in C:\Users\kkoro\IdeaProjects\rent-service-apartment\interior-client)
+2024-01-18 17:53:29.715 [main] INFO  c.e.i.a.ApplicationControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-01-18 17:53:30.520 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-18 17:53:30.708 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 177 ms. Found 3 JPA repository interfaces.
+2024-01-18 17:53:31.046 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=86d5d7fd-48f5-3931-80f7-def9f9a77020
+2024-01-18 17:53:31.592 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-18 17:53:31.710 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.7.Final
+2024-01-18 17:53:31.712 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2024-01-18 17:53:31.932 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-01-18 17:53:32.122 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-18 17:53:32.140 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-01-18 17:53:32.337 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5368e981
+2024-01-18 17:53:32.340 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-01-18 17:53:32.760 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2024-01-18 17:53:33.465 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-18 17:53:33.507 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-18 17:53:34.297 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-01-18 17:53:34.548 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-18 17:53:35.523 [main] INFO  o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-01-18 17:53:35.523 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2024-01-18 17:53:35.524 [main] INFO  o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2024-01-18 17:53:35.683 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-01-18 17:53:35.834 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-01-18 17:53:35.970 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
@@ -216,174 +115,37 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
 
-2023-11-01 13:13:01.323 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.1
-2023-11-01 13:13:01.323 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 8a516edc2755df89
-2023-11-01 13:13:01.324 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1698833581321
-2023-11-01 13:13:01.326 [main] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Subscribed to topic(s): myTopic
-2023-11-01 13:13:01.344 [main] INFO  c.e.i.InteriorClientApplicationTests - Started InteriorClientApplicationTests in 6.461 seconds (process running for 7.359)
-2023-11-01 13:13:01.734 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
-2023-11-01 13:13:01.735 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
-2023-11-01 13:13:01.736 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
-2023-11-01 13:13:01.848 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
-2023-11-01 13:13:01.848 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
-2023-11-01 13:13:01.848 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
-2023-11-01 13:13:01.958 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
-2023-11-01 13:13:01.958 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
-2023-11-01 13:13:01.958 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
-2023-11-01 13:13:01.958 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-11-01 13:13:01.961 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application INTERIOR-CLIENT with eureka with status DOWN
-2023-11-01 13:13:01.966 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
-2023-11-01 13:13:01.966 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
-2023-11-01 13:13:01.966 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Unsubscribed all topics or patterns and assigned partitions
-2023-11-01 13:13:01.966 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
-2023-11-01 13:13:01.967 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
-2023-11-01 13:13:01.967 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2023-11-01 13:13:01.967 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2023-11-01 13:13:01.967 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2023-11-01 13:13:01.970 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-kafka-sandbox-1 unregistered
-2023-11-01 13:13:01.971 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - kafka-sandbox: Consumer stopped
-2023-11-01 13:13:01.976 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-01 13:13:01.979 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-11-01 13:13:01.983 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-11-01 13:36:53.754 [main] INFO  c.e.i.InteriorClientApplicationTests - Starting InteriorClientApplicationTests using Java 17.0.8 with PID 8924 (started by kkoro in C:\Users\kkoro\IdeaProjects\rent-service-apartment\interior-client)
-2023-11-01 13:36:53.756 [main] INFO  c.e.i.InteriorClientApplicationTests - No active profile set, falling back to 1 default profile: "default"
-2023-11-01 13:36:54.498 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-01 13:36:54.638 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130 ms. Found 3 JPA repository interfaces.
-2023-11-01 13:36:54.949 [main] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=acdc7f28-2ada-3a85-a4e8-a2f20c278bd6
-2023-11-01 13:36:55.322 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-01 13:36:55.400 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.7.Final
-2023-11-01 13:36:55.402 [main] INFO  org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-11-01 13:36:55.584 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-11-01 13:36:55.744 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-11-01 13:36:55.760 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-11-01 13:36:55.961 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@671da0f9
-2023-11-01 13:36:55.963 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-11-01 13:36:56.287 [main] INFO  o.h.b.i.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-11-01 13:36:56.902 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-01 13:36:56.941 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-01 13:36:57.800 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2023-11-01 13:36:57.979 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-01 13:36:58.625 [main] INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
-2023-11-01 13:36:58.770 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2023-11-01 13:36:58.843 [main] INFO  o.a.k.c.consumer.ConsumerConfig - ConsumerConfig values: 
-	allow.auto.create.topics = true
-	auto.commit.interval.ms = 5000
-	auto.include.jmx.reporter = true
-	auto.offset.reset = latest
-	bootstrap.servers = [localhost:39092]
-	check.crcs = true
-	client.dns.lookup = use_all_dns_ips
-	client.id = consumer-kafka-sandbox-1
-	client.rack = 
-	connections.max.idle.ms = 540000
-	default.api.timeout.ms = 60000
-	enable.auto.commit = false
-	exclude.internal.topics = true
-	fetch.max.bytes = 52428800
-	fetch.max.wait.ms = 500
-	fetch.min.bytes = 1
-	group.id = kafka-sandbox
-	group.instance.id = null
-	heartbeat.interval.ms = 3000
-	interceptor.classes = []
-	internal.leave.group.on.close = true
-	internal.throw.on.fetch.stable.offset.unsupported = false
-	isolation.level = read_uncommitted
-	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
-	max.partition.fetch.bytes = 1048576
-	max.poll.interval.ms = 300000
-	max.poll.records = 500
-	metadata.max.age.ms = 300000
-	metric.reporters = []
-	metrics.num.samples = 2
-	metrics.recording.level = INFO
-	metrics.sample.window.ms = 30000
-	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
-	receive.buffer.bytes = 65536
-	reconnect.backoff.max.ms = 1000
-	reconnect.backoff.ms = 50
-	request.timeout.ms = 30000
-	retry.backoff.ms = 100
-	sasl.client.callback.handler.class = null
-	sasl.jaas.config = null
-	sasl.kerberos.kinit.cmd = /usr/bin/kinit
-	sasl.kerberos.min.time.before.relogin = 60000
-	sasl.kerberos.service.name = null
-	sasl.kerberos.ticket.renew.jitter = 0.05
-	sasl.kerberos.ticket.renew.window.factor = 0.8
-	sasl.login.callback.handler.class = null
-	sasl.login.class = null
-	sasl.login.connect.timeout.ms = null
-	sasl.login.read.timeout.ms = null
-	sasl.login.refresh.buffer.seconds = 300
-	sasl.login.refresh.min.period.seconds = 60
-	sasl.login.refresh.window.factor = 0.8
-	sasl.login.refresh.window.jitter = 0.05
-	sasl.login.retry.backoff.max.ms = 10000
-	sasl.login.retry.backoff.ms = 100
-	sasl.mechanism = GSSAPI
-	sasl.oauthbearer.clock.skew.seconds = 30
-	sasl.oauthbearer.expected.audience = null
-	sasl.oauthbearer.expected.issuer = null
-	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
-	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
-	sasl.oauthbearer.jwks.endpoint.url = null
-	sasl.oauthbearer.scope.claim.name = scope
-	sasl.oauthbearer.sub.claim.name = sub
-	sasl.oauthbearer.token.endpoint.url = null
-	security.protocol = PLAINTEXT
-	security.providers = null
-	send.buffer.bytes = 131072
-	session.timeout.ms = 45000
-	socket.connection.setup.timeout.max.ms = 30000
-	socket.connection.setup.timeout.ms = 10000
-	ssl.cipher.suites = null
-	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
-	ssl.endpoint.identification.algorithm = https
-	ssl.engine.factory.class = null
-	ssl.key.password = null
-	ssl.keymanager.algorithm = SunX509
-	ssl.keystore.certificate.chain = null
-	ssl.keystore.key = null
-	ssl.keystore.location = null
-	ssl.keystore.password = null
-	ssl.keystore.type = JKS
-	ssl.protocol = TLSv1.3
-	ssl.provider = null
-	ssl.secure.random.implementation = null
-	ssl.trustmanager.algorithm = PKIX
-	ssl.truststore.certificates = null
-	ssl.truststore.location = null
-	ssl.truststore.password = null
-	ssl.truststore.type = JKS
-	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
-
-2023-11-01 13:36:58.956 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.1
-2023-11-01 13:36:58.956 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 8a516edc2755df89
-2023-11-01 13:36:58.956 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1698835018955
-2023-11-01 13:36:58.959 [main] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Subscribed to topic(s): myTopic
-2023-11-01 13:36:58.975 [main] INFO  c.e.i.InteriorClientApplicationTests - Started InteriorClientApplicationTests in 5.625 seconds (process running for 6.489)
-2023-11-01 13:36:59.477 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting the last seen epoch of partition myTopic-0 to 0 since the associated topicId changed from null to rQ7EG0XuRXKk9RM7UQryzQ
-2023-11-01 13:36:59.481 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  org.apache.kafka.clients.Metadata - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Cluster ID: uymcxbg2RpCmYI-dmHP23A
-2023-11-01 13:36:59.483 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Discovered group coordinator localhost:39092 (id: 2147483645 rack: null)
-2023-11-01 13:36:59.485 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] (Re-)joining group
-2023-11-01 13:36:59.508 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: need to re-join with the given member-id: consumer-kafka-sandbox-1-6df2ba6c-23a1-4d70-bb5e-5b27f8e4a35d
-2023-11-01 13:36:59.508 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: rebalance failed due to 'The group member needs to have a valid member id before actually entering a consumer group.' (MemberIdRequiredException)
-2023-11-01 13:36:59.508 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] (Re-)joining group
-2023-11-01 13:36:59.668 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
-2023-11-01 13:36:59.671 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application INTERIOR-CLIENT with eureka with status DOWN
-2023-11-01 13:36:59.678 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Member consumer-kafka-sandbox-1-6df2ba6c-23a1-4d70-bb5e-5b27f8e4a35d sending LeaveGroup request to coordinator localhost:39092 (id: 2147483645 rack: null) due to the consumer unsubscribed from all topics
-2023-11-01 13:36:59.680 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
-2023-11-01 13:36:59.680 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
-2023-11-01 13:36:59.680 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Unsubscribed all topics or patterns and assigned partitions
-2023-11-01 13:36:59.681 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
-2023-11-01 13:36:59.681 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
-2023-11-01 13:37:01.639 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
-2023-11-01 13:37:01.639 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
-2023-11-01 13:37:01.640 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
-2023-11-01 13:37:01.644 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-kafka-sandbox-1 unregistered
-2023-11-01 13:37:01.644 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - kafka-sandbox: Consumer stopped
-2023-11-01 13:37:01.647 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-01 13:37:01.650 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-11-01 13:37:01.653 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-01-18 17:53:36.128 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka version: 3.4.1
+2024-01-18 17:53:36.128 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka commitId: 8a516edc2755df89
+2024-01-18 17:53:36.128 [main] INFO  o.a.kafka.common.utils.AppInfoParser - Kafka startTimeMs: 1705589616126
+2024-01-18 17:53:36.132 [main] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Subscribed to topic(s): myTopic
+2024-01-18 17:53:36.152 [main] INFO  c.e.i.a.ApplicationControllerTest - Started ApplicationControllerTest in 6.905 seconds (process running for 7.988)
+2024-01-18 17:53:36.572 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
+2024-01-18 17:53:36.574 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2024-01-18 17:53:36.574 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
+2024-01-18 17:53:36.675 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
+2024-01-18 17:53:36.676 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2024-01-18 17:53:36.676 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
+2024-01-18 17:53:36.777 [main] WARN  o.s.c.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.example.interiorclient.controller.RentProductController
+2024-01-18 17:53:36.783 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
+2024-01-18 17:53:36.783 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2024-01-18 17:53:36.783 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
+2024-01-18 17:53:36.785 [main] INFO  c.e.i.s.impl.ProductServiceImpl - interior-client : throwInfoToProductService -> started
+2024-01-18 17:53:37.015 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Node -1 disconnected.
+2024-01-18 17:53:37.015 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Connection to node -1 (localhost/127.0.0.1:39092) could not be established. Broker may not be available.
+2024-01-18 17:53:37.016 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] WARN  o.apache.kafka.clients.NetworkClient - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Bootstrap broker localhost:39092 (id: -1 rack: null) disconnected
+2024-01-18 17:53:37.060 [SpringApplicationShutdownHook] INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-01-18 17:53:37.062 [SpringApplicationShutdownHook] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application INTERIOR-CLIENT with eureka with status DOWN
+2024-01-18 17:53:37.066 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-01-18 17:53:37.066 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
+2024-01-18 17:53:37.066 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.clients.consumer.KafkaConsumer - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Unsubscribed all topics or patterns and assigned partitions
+2024-01-18 17:53:37.067 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Resetting generation and member id due to: consumer pro-actively leaving the group
+2024-01-18 17:53:37.067 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-kafka-sandbox-1, groupId=kafka-sandbox] Request joining group due to: consumer pro-actively leaving the group
+2024-01-18 17:53:37.068 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2024-01-18 17:53:37.069 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2024-01-18 17:53:37.069 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2024-01-18 17:53:37.072 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-kafka-sandbox-1 unregistered
+2024-01-18 17:53:37.073 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO  o.s.k.l.KafkaMessageListenerContainer - kafka-sandbox: Consumer stopped
+2024-01-18 17:53:37.079 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-18 17:53:37.081 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-01-18 17:53:37.090 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
